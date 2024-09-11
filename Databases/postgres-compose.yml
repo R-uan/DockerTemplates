@@ -1,14 +1,13 @@
 services:
-    # Change the container name
     postgres:
         image: postgres:latest
-        container_name: my_postgres_db
+        container_name: postgresql
         restart: unless-stopped
         ports:
             - "5432:5432"
         environment:
-            POSTGRES_DB: my_database
-            POSTGRES_USER: my_user
-            POSTGRES_PASSWORD: my_password
+            POSTGRES_DB: db
+            POSTGRES_USER: user
+            POSTGRES_PASSWORD: password
         volumes:
-            - ./data:/var/lib/artgallery/postgresql/data
+            - ./data:/var/lib/volume/postgresql/data
